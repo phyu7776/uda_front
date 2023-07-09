@@ -1,11 +1,10 @@
-import './App.css';
+import { useRoutes } from "react-router-dom";
+import Themeroutes from "./routes/Router";
 
-function App() {
-  return (
-    <div>
-      <h1>이건 우리들의 이야기야</h1>
-    </div>
-  );
-}
+const App = () => {
+  const routing = useRoutes(Themeroutes);
+
+  return <div className="dark">{routing}</div>;
+};
 
 export default App;

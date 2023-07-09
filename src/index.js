@@ -1,10 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
+import React, { Suspense } from "react";
+import {createRoot} from 'react-dom/client';
+import "./assets/scss/style.scss";
+import App from "./App";
+import { HashRouter } from "react-router-dom";
+import Loader from "./layouts/loader/Loader";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Suspense fallback={<Loader />}>
+    <HashRouter>
+      <App />
+    </HashRouter>
+  </Suspense>
 );
